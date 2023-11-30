@@ -7,6 +7,8 @@ public class PlayerController : RingController
 
     [SerializeField] private float _force;
     [SerializeField] private float _boundY;
+    [SerializeField] private Vector3 _tagOffset;
+    [SerializeField] private TextMesh _playerTag;
 
     private bool _inYBound;
     private Rigidbody playerRb;
@@ -25,6 +27,7 @@ public class PlayerController : RingController
     private void Update()
     {
         CheckBound();
+        FollowRingPosition(_playerTag.transform, _tagOffset);
     }
     
     private void CheckBound()

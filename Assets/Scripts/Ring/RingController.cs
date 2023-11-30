@@ -14,4 +14,11 @@ public class RingController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.AddForce(new Vector3(1f, 2f, 0f) * _force, ForceMode.Impulse);
     }
+
+    protected void FollowRingPosition(Transform objTransform, Vector3 offset)
+    {
+        objTransform.position = new Vector3(transform.position.x + offset.x,
+                                            transform.position.y + offset.y,
+                                            transform.position.z + offset.z);
+    }
 }

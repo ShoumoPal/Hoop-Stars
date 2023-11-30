@@ -5,6 +5,8 @@ public class BotController : RingController
     [SerializeField] private Transform _goal;
     [SerializeField] private float _jumpDelay;
     [SerializeField] private float _force;
+    [SerializeField] private TextMesh _botTag;
+    [SerializeField] private Vector3 _tagOffset;
 
     private Rigidbody _botRb;
 
@@ -12,6 +14,11 @@ public class BotController : RingController
     {
         _botRb = GetComponent<Rigidbody>();
         InvokeRepeating(nameof(BotDelayJump), 2f, _jumpDelay);
+    }
+
+    private void Update()
+    {
+        FollowRingPosition(_botTag.transform, _tagOffset);
     }
 
     private void BotDelayJump()
