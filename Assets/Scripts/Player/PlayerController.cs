@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// PlayerController class inherits from RingController and provides functionality for the Player
+
 public class PlayerController : RingController
 {
     [SerializeField] private static PlayerController instance;

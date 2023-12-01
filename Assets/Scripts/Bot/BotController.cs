@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Script used for the Bot AI in the game
+
 public class BotController : RingController
 {
     [SerializeField] private Transform _goal;
@@ -18,6 +20,8 @@ public class BotController : RingController
 
     private void Update()
     {
+        // Inherited function
+
         FollowRingPosition(_botTag.transform, _tagOffset);
     }
 

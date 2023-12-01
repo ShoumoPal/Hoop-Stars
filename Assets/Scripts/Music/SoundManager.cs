@@ -15,6 +15,8 @@ public class Sound
     public float Volume;
 }
 
+// Singleton class for sounds in the game
+
 public class SoundManager : GenericMonoSingleton<SoundManager>
 {
     [SerializeField] private AudioSource _sourceFX;
