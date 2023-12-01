@@ -2,21 +2,24 @@ using UnityEngine;
 
 // Generic Monobehaviour singleton class which helps to extend other classes into singleton behaviour
 
-public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
+namespace Generics
 {
-    private static T instance;
-    public static T Instance { get { return instance; } }
-
-    private void Awake()
+    public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
     {
-        if(instance == null)
+        private static T instance;
+        public static T Instance { get { return instance; } }
+
+        private void Awake()
         {
-            instance = (T)this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (instance == null)
+            {
+                instance = (T)this;
+                DontDestroyOnLoad(instance);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

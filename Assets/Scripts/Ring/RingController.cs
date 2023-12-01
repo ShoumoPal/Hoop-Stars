@@ -1,30 +1,34 @@
+using Music;
 using UnityEngine;
 
 // Base class for the hoops which contain some similar functionalities used by both
 
-public class RingController : MonoBehaviour
+namespace Ring
 {
-
-    protected void JumpLeft(Rigidbody rb, float _force)
+    public class RingController : MonoBehaviour
     {
-        SoundManager.Instance.PlaySFX(SoundType.Jump);
 
-        rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(-1f, 2f, 0f) *  _force, ForceMode.Impulse);
-    }
+        protected void JumpLeft(Rigidbody rb, float _force)
+        {
+            SoundManager.Instance.PlaySFX(SoundType.Jump);
 
-    protected void JumpRight(Rigidbody rb, float _force)
-    {
-        SoundManager.Instance.PlaySFX(SoundType.Jump);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(new Vector3(-1f, 2f, 0f) * _force, ForceMode.Impulse);
+        }
 
-        rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(1f, 2f, 0f) * _force, ForceMode.Impulse);
-    }
+        protected void JumpRight(Rigidbody rb, float _force)
+        {
+            SoundManager.Instance.PlaySFX(SoundType.Jump);
 
-    protected void FollowRingPosition(Transform objTransform, Vector3 offset)
-    {
-        objTransform.position = new Vector3(transform.position.x + offset.x,
-                                            transform.position.y + offset.y,
-                                            transform.position.z + offset.z);
+            rb.velocity = Vector3.zero;
+            rb.AddForce(new Vector3(1f, 2f, 0f) * _force, ForceMode.Impulse);
+        }
+
+        protected void FollowRingPosition(Transform objTransform, Vector3 offset)
+        {
+            objTransform.position = new Vector3(transform.position.x + offset.x,
+                                                transform.position.y + offset.y,
+                                                transform.position.z + offset.z);
+        }
     }
 }

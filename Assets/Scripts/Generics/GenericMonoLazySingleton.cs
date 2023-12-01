@@ -2,20 +2,23 @@ using UnityEngine;
 
 // Script similar to a generic singleton class, except these are destroyed on scene change
 
-public class GenericMonoLazySingleton<T> : MonoBehaviour where T : GenericMonoLazySingleton<T>
+namespace Generics
 {
-    private static T instance;
-    public static T Instance { get { return instance; } }
-
-    private void Awake()
+    public class GenericMonoLazySingleton<T> : MonoBehaviour where T : GenericMonoLazySingleton<T>
     {
-        if (instance == null)
+        private static T instance;
+        public static T Instance { get { return instance; } }
+
+        private void Awake()
         {
-            instance = (T)this;
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (instance == null)
+            {
+                instance = (T)this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
