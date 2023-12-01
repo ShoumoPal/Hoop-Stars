@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Singleton class used for UI management in the game
+
 public class UIManager : GenericMonoLazySingleton<UIManager>
 {
     [SerializeField] private TextMeshProUGUI _playerScoreText;

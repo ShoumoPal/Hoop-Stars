@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Base class for the hoops which contain some similar functionalities used by both
+
 public class RingController : MonoBehaviour
 {
 

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Script similar to a generic singleton class, except these are destroyed on scene change
+
 public class GenericMonoLazySingleton<T> : MonoBehaviour where T : GenericMonoLazySingleton<T>
 {
     private static T instance;

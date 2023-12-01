@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Generic Monobehaviour singleton class which helps to extend other classes into singleton behaviour
+
 public class GenericMonoSingleton<T> : MonoBehaviour where T : GenericMonoSingleton<T>
 {
     private static T instance;
